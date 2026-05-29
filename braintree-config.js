@@ -6,6 +6,6 @@ const PROJECT_ID = "good-knight-boutique";
 const BASE = `https://${REGION}-${PROJECT_ID}.cloudfunctions.net`;
 
 export const braintreeConfig = {
-  clientTokenUrl: `${BASE}/braintreeClientToken`,
-  checkoutUrl: `${BASE}/braintreeCheckout`
+  clientTokenUrl: "https://us-central1-good-knight-boutique.cloudfunctions.net/braintreeClientToken",
+  checkoutUrl: "https://us-central1-good-knight-boutique.cloudfunctions.net/braintreeCheckout"
 };
