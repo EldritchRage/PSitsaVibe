@@ -1,7 +1,7 @@
 /* =============================================================================
    ONLY EDIT THIS FILE FOR FIREBASE KEYS — See FIREBASE_SETUP.md
 
-   • Do NOT edit firebase-client.js — leave auth/db/storage as null there
+   • Do NOT edit firebase-client.js — leave auth/db as null there (Storage not used)
    ============================================================================= */
 
 export const firebaseConfig = {
