@@ -83,9 +83,12 @@ firebase deploy --only functions
 
 ## Troubleshooting
 
-| Error | Fix |
-|-------|-----|
-| CORS blocked | Functions use `cors({ origin: true })` — redeploy functions |
-| Client token missing | Check `functions:config` keys and deploy |
-| 402 Payment declined | Use sandbox test card / PayPal sandbox account |
-| Permission denied on orders | Publish `firestore.rules` with `orders` create allowed |
+
+| Error                       | Fix                                                         |
+| --------------------------- | ----------------------------------------------------------- |
+| CORS blocked                | Functions use `cors({ origin: true })` — redeploy functions |
+| Client token missing        | Check `functions:config` keys and deploy                    |
+| 402 Payment declined        | Use sandbox test card / PayPal sandbox account              |
+| Permission denied on orders | Publish `firestore.rules` with `orders` create allowed      |
+
+
