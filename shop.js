@@ -1,51 +1,12 @@
 import { db, isFirebaseReady } from "./firebase-client.js";
 import { watchAuth } from "./auth-service.js";
 import { saveCart } from "./cart-storage.js";
+import { categoryLabels, defaultCategory } from "./categories.js";
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-const categoryLabels = {
-  "crocheted-outfits": "Crocheted Outfits",
-  "heat-pressed": "Heat-Pressed",
-  earrings: "Earrings",
-  necklaces: "Necklaces",
-  bracelets: "Bracelets",
-  rings: "Rings",
-  keychains: "Keychains",
-  totes: "Totes",
-  purses: "Purses",
-  "cross-body-bags": "Cross Body Bags",
-  pouches: "Pouches",
-  wallets: "Wallets",
-  mugs: "Mugs",
-  tumblers: "Tumblers",
-  "water-bottles": "Water Bottles",
-  "wine-glasses": "Wine Glasses",
-  coasters: "Coasters",
-  figurines: "Figurines",
-  ornaments: "Ornaments",
-  "desk-toys": "Desk Toys",
-  planters: "Planters",
-  "wall-hooks": "Wall Hooks",
-  "fidget-toys": "Fidget Toys",
-  "phone-stands": "Phone Stands",
-  "cable-organizers": "Cable Organizers",
-  "cookie-cutters": "Cookie Cutters",
-  "custom-replacement-parts": "Custom Replacement Parts"
-};
+const fallbackCatalog = {};
 
-const fallbackCatalog = {
-  "crocheted-outfits": [
-    {
-      id: "sample-crochet",
-      name: "Sample Crocheted Outfit",
-      price: 48,
-      imageUrl: "https://via.placeholder.com/600x400?text=Add+Products+in+Admin",
-      description: "Use the Admin page to replace this sample with Shelby's real listings."
-    }
-  ]
-};
-
-let activeCategory = "crocheted-outfits";
+let activeCategory = defaultCategory;
 const cart = {};
 const catalog = {};
 let currentUser = null;
@@ -68,7 +29,8 @@ function renderCatalog(categoryId) {
   const catalogGrid = document.getElementById("catalog-grid");
   const categoryButtons = document.querySelectorAll(".category-button");
 
-  const categoryTitle = categoryLabels[categoryId] || "Category";
+  const fullLabel = categoryLabels[categoryId] || "Category";
+  const categoryTitle = fullLabel.includes(">") ? fullLabel.split(">").pop().trim() : fullLabel;
   catalogTitle.textContent = `${categoryTitle} Catalog`;
 
   categoryButtons.forEach((button) => {

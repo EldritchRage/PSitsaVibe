@@ -20,10 +20,11 @@ This setup uses **only frontend code** — no Cloud Functions, no webhooks, no S
 Firebase Console → **Authentication** → **Sign-in method** → enable **Email/Password**.
 
 Add your site to **Authorized domains**:
+
 - `localhost`
 - `eldritchrage.github.io` (your GitHub Pages domain)
 
-Customers use **`login.html`**. Shelby still uses **`admin.html`** (separate admin account).
+Customers use `**login.html`**. Shelby still uses `**admin.html**` (separate admin account).
 
 ## 2. Create Stripe Payment Links
 
@@ -47,14 +48,15 @@ To find a product doc ID: Firebase Console → Firestore → `products` → copy
 
 ## 4. Customer flow
 
-1. Browse **`shop.html`** → add to cart
+1. Browse `**shop.html**` → add to cart
 2. **Proceed to Checkout**
-3. If not signed in → **`login.html`** → sign in or create account
-4. **`buy.html`** (protected) → **Buy Now** opens Stripe hosted checkout in a new tab
+3. If not signed in → `**login.html`** → sign in or create account
+4. `**buy.html**` (protected) → **Buy Now** opens Stripe hosted checkout in a new tab
 
 ## 5. Upload to GitHub
 
 Upload all new/updated files to repo root, including:
+
 - `stripe-config.js` (with your real link)
 - `login.html`, `login.js`
 - `buy.html`, `buy.js`
@@ -73,3 +75,4 @@ Upload all new/updated files to repo root, including:
 - `functions/` folder (Cloud Functions)
 - `braintree-config.js`
 - Braintree script on shop page
+

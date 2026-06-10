@@ -17,35 +17,7 @@ import {
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-const categoryLabels = {
-  "crocheted-outfits": "Wearables > Apparel > Crocheted Outfits",
-  "heat-pressed": "Wearables > Apparel > Heat-Pressed",
-  earrings: "Wearables > Jewelry > Earrings",
-  necklaces: "Wearables > Jewelry > Necklaces",
-  bracelets: "Wearables > Jewelry > Bracelets",
-  rings: "Wearables > Jewelry > Rings",
-  keychains: "Wearables > Jewelry > Keychains",
-  totes: "Wearables > Bags and Accessories > Totes",
-  purses: "Wearables > Bags and Accessories > Purses",
-  "cross-body-bags": "Wearables > Bags and Accessories > Cross Body Bags",
-  pouches: "Wearables > Bags and Accessories > Pouches",
-  wallets: "Wearables > Bags and Accessories > Wallets",
-  mugs: "Drinkware and Kitchen > Sublimated Items > Mugs",
-  tumblers: "Drinkware and Kitchen > Sublimated Items > Tumblers",
-  "water-bottles": "Drinkware and Kitchen > Sublimated Items > Water Bottles",
-  "wine-glasses": "Drinkware and Kitchen > Sublimated Items > Wine Glasses",
-  coasters: "Drinkware and Kitchen > Sublimated Items > Coasters",
-  figurines: "3D Printed > Home Decor > Figurines",
-  ornaments: "3D Printed > Home Decor > Ornaments",
-  "desk-toys": "3D Printed > Home Decor > Desk Toys",
-  planters: "3D Printed > Home Decor > Planters",
-  "wall-hooks": "3D Printed > Home Decor > Wall Hooks",
-  "fidget-toys": "3D Printed > Home Decor > Fidget Toys",
-  "phone-stands": "3D Printed > Function Prints > Phone Stands",
-  "cable-organizers": "3D Printed > Function Prints > Cable Organizers",
-  "cookie-cutters": "3D Printed > Function Prints > Cookie Cutters",
-  "custom-replacement-parts": "3D Printed > Function Prints > Custom Replacement Parts"
-};
+import { categoryLabels } from "./categories.js";
 
 const setupNotice = document.getElementById("setup-notice");
 const authPanel = document.getElementById("auth-panel");
