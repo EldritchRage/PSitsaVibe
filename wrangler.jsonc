@@ -2,6 +2,8 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "psitsavibe",
   "compatibility_date": "2026-07-07",
+  "workers_dev": true,
+  "preview_urls": false,
   "observability": {
     "enabled": true
   },
@@ -13,8 +15,8 @@
   ],
   "routes": [
     {
-      "pattern": "www.psitsavibe.com",
-      "custom_domain": true
+      "pattern": "www.psitsavibe.com/*",
+      "zone_name": "psitsavibe.com"
     }
   ]
 }
