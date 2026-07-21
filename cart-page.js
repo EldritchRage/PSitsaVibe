@@ -5,7 +5,7 @@ import {
   updateQuantity,
   onCartUpdated
 } from "./cart.js";
-import { createCheckoutSession } from "./checkout.js";
+import { createCheckoutSession } from "./checkout.js?v=phase2-checkout-1";
 import { CHECKOUT_API_URL } from "./checkout-config.js";
 
 const emptyCartEl = document.getElementById("empty-cart");

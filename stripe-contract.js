@@ -12,7 +12,7 @@ export function buildCheckoutRequest(items, origin) {
   const normalized = items.map(normalizeCartItem);
   return {
     line_items: normalized.map((item) => ({ price_id: item.priceId, quantity: item.quantity })),
-    success_url: `${origin}/checkout-success.html`,
+    success_url: `${origin}/checkout-success.html?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${origin}/checkout-cancel.html`,
   };
 }

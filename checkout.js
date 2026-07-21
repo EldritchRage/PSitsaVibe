@@ -1,8 +1,12 @@
 import { CHECKOUT_API_URL } from "./checkout-config.js";
-import { buildCheckoutRequest } from "./stripe-contract.js";
+import { buildCheckoutRequest } from "./stripe-contract.js?v=phase2-checkout-1";
+import { auth } from "./firebase-client.js";
 
 export async function createCheckoutSession(cartItems) {
   const payload = buildCheckoutRequest(cartItems, window.location.origin);
+  if (auth?.currentUser) {
+    payload.firebase_id_token = await auth.currentUser.getIdToken();
+  }
 
   const response = await fetch(CHECKOUT_API_URL, {
     method: "POST",

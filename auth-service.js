@@ -3,7 +3,8 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
 
 export function isAuthConfigured() {
@@ -44,11 +45,15 @@ export async function signIn(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 
-export async function register(email, password) {
+export async function register(email, password, displayName = "") {
   if (!isAuthConfigured()) {
     throw new Error("Firebase Auth is not configured");
   }
-  return createUserWithEmailAndPassword(auth, email, password);
+  const credential = await createUserWithEmailAndPassword(auth, email, password);
+  if (displayName.trim()) {
+    await updateProfile(credential.user, { displayName: displayName.trim() });
+  }
+  return credential;
 }
 
 export async function logOut() {
